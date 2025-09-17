@@ -55,8 +55,8 @@ def parse_args():
     parser.add_argument("--hidden_dims_mlp", type=str, default="1024-1024-1024")
     parser.add_argument("--num_heads_layers", type=int, default=2)
     parser.add_argument("--early_stop_patience", type=int, default=10)
-    parser.add_argument("--mlp_mode", type=str, choices=["merged", "mergedAtt", "onlyKGE", "onlyFeat", "direct", "empty"], 
-                        default="merged", help="MLP input mode: 'merged', 'mergedAtt', 'direct', 'empty', 'onlyKGE', or 'onlyFeat'")
+    parser.add_argument("--mlp_mode", type=str, choices=["merged", "mergedAtt", "onlyKGE", "onlyFeat", "direct", "empty", "noDiseaseFeature", "noTargetFeature"], 
+                        default="merged", help="MLP input mode: 'merged', 'mergedAtt', 'direct', 'empty', 'onlyKGE', 'onlyFeat', "noDiseaseFeature", or"noTargetFeature")
     args = parser.parse_args()
 
     return args
@@ -369,6 +369,22 @@ def train(i):
                                                                             gene_ids, disease_ids, args.emb_dim_feat)
         input_dim = args.emb_dim_kge*3
         print(f"MLP input dimension: {input_dim}")
+        train_MLP(train_data_id, test_data_id, entity_embeddings, relation_embeddings, input_dim)
+    elif args.mlp_mode == 'noTargetFeature':
+        print("Start training MLP scoring model without target feature...")
+        logging.info("Start training MLP scoring model without target feature...")
+        entity_embeddings, relation_embeddings = get_merged_embeddings_noTargetFeature(kge_ent_emb, kge_rel_emb, entity2id, relation2id, disease_feat_emb, gene_ids, disease_ids, args.emb_dim_feat)
+        input_dim = args.emb_dim_kge*3 + args.emb_dim_feat
+        print(f"MLP input dimension: {input_dim}")
+        logging.info(f"MLP input dimension: {input_dim}")
+        train_MLP(train_data_id, test_data_id, entity_embeddings, relation_embeddings, input_dim)
+    elif args.mlp_mode == 'noDiseaseFeature':
+        print("Start training MLP scoring model without disease feature...")
+        logging.info("Start training MLP scoring model without disease feature...")
+        entity_embeddings, relation_embeddings = get_merged_embeddings_noDiseaseFeature(kge_ent_emb, kge_rel_emb, entity2id, relation2id, gene_feat_emb, gene_ids, disease_ids, args.emb_dim_feat)
+        input_dim = args.emb_dim_kge*3 + args.emb_dim_feat
+        print(f"MLP input dimension: {input_dim}")
+        logging.info(f"MLP input dimension: {input_dim}")
         train_MLP(train_data_id, test_data_id, entity_embeddings, relation_embeddings, input_dim)
     end_time = time.time()
     print(f"Finishing training MLP scoring model, time cost: {end_time - start_time:.4f} seconds\n")
