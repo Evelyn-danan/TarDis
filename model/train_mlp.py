@@ -56,7 +56,7 @@ def parse_args():
     parser.add_argument("--num_heads_layers", type=int, default=2)
     parser.add_argument("--early_stop_patience", type=int, default=10)
     parser.add_argument("--mlp_mode", type=str, choices=["merged", "mergedAtt", "onlyKGE", "onlyFeat", "direct", "empty", "noDiseaseFeature", "noTargetFeature"], 
-                        default="merged", help="MLP input mode: 'merged', 'mergedAtt', 'direct', 'empty', 'onlyKGE', 'onlyFeat', "noDiseaseFeature", or"noTargetFeature")
+                        default="merged", help="MLP input mode: 'merged', 'mergedAtt', 'direct', 'empty', 'onlyKGE', 'onlyFeat', 'noDiseaseFeature', or'noTargetFeature'")
     args = parser.parse_args()
 
     return args
