@@ -21,7 +21,7 @@ from datetime import datetime
 import time
 
 from utils import load_IDMapping, load_train_data, load_entity_feature, load_gene_disease_ids, print_pykeen_metrics, save_embeddings
-from utils import get_merged_embeddings, get_merged_embeddings_att, get_merged_embeddings_onlyKGE, get_merged_embeddings_onlyFeat
+from utils import get_merged_embeddings, get_merged_embeddings_att, get_merged_embeddings_onlyKGE, get_merged_embeddings_onlyFeat, get_merged_embeddings_noDiseaseFeature, get_merged_embeddings_noTargetFeature
 from utils import get_merged_embeddings_direct, get_merged_embeddings_empty, save_mlp_embeddings
 from mlp_model import GeneDiseaseDataset, MLPScoringModel, train_mlp, test_mlp
 from mlp_model import GeneDiseaseDataset_Att, MLPScoringModel_Att, train_mlp_att, test_mlp_att
