@@ -1,7 +1,7 @@
 <h1 align="center"> TarDis </h1>
 
 
-<img src="model.png" alt="model"  width="90%" align="center" />
+<img src="model.png" alt="model"  width="100%" />
 
 
 TarDis generates protein sequence embeddings (G<sub>f</sub>,)using ESM-2 (650Mparameters), graph structural embeddings (G<sub>k</sub>, R and D<sub>k</sub>) for disease nodetarget-disease relationship, and target node using CompGCN, and diseasesemantic embeddings (D<sub>f</sub>,) using BiBERT, Before training the MLP model.TarDis fuses these embeddings for diseases and targets into G and Drespectively, which are then fed into the MLP network to infer target-diseaseassociations.
