@@ -20,8 +20,6 @@ Dependencies for TarDis:
 
 ## How to run
 
-* Install all the requirements from pykeen.yml `.`
-
 ### Data & Code Prepare
 
 To run TarDis, plz clone the repo。
