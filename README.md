@@ -1,4 +1,4 @@
-<h1 align="center"> TarDIS <h1 align="center"> 
+<h1 align="center"> TarDis </h1>h1> 
 
 ![1757147056692](model.png)
 
