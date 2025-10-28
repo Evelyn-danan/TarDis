@@ -55,7 +55,7 @@ do
             do
                 for lr in "${lrs[@]}"
                 do
-                    train_command="python -u train_mlp_run.py --gpu ${gpu} --epochs_mlp ${epoch} --batch_size_mlp ${batch_size} --emb_dim_kge ${kge_emb} \
+                    train_command="python -u train_mlp.py --gpu ${gpu} --epochs_mlp ${epoch} --batch_size_mlp ${batch_size} --emb_dim_kge ${kge_emb} \
                                     --emb_dim_feat ${feat_emb} --lr_mlp ${lr} --dropout_mlp ${dropout} --hidden_dims_mlp ${hidden_dim} \
                                     --num_heads_layers ${num_head_layer} --mlp_mode ${mlp_mode} --save_emb ${save_emb} --dir_name ${dir_name} \
                                     --early_stop_patience ${early_stop_patience}"
