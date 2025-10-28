@@ -42,7 +42,7 @@ python -u train_pykeen_hpo.py --model CompGCN --gpu 0 --epochs_kge 500 --batch_s
 ```
 In the multilayer perceptron training stage, users can follow the cmd in run_mlp_hpo.sh.
 ```bash
-python -u train_mlp_run.py --gpu 0 --epochs_mlp 1000 --batch_size_mlp 10000 --emb_dim_kge 20
+python -u train_mlp.py --gpu 0 --epochs_mlp 1000 --batch_size_mlp 10000 --emb_dim_kge 20
 --emb_dim_feat 100 --lr_mlp 0.0001 --dropout_mlp 0.3 --hidden_dims_mlp '1024-1024-1024'
 --num_heads_layers 2 --mlp_mode merged --save_emb 1 --dir_name 'mlp_ablation_merged'
 --early_stop_patience 10
