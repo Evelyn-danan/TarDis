@@ -85,3 +85,5 @@ bash run_kge_baseline_rescal_conve.sh DistMult 0
 #Training the ComplEX model using GPU 0.
 bash run_kge_baseline_rescal_conve.sh ComplEX 0
 ```
+## **APPLICATION**
+We used TarDis to rank diseases potentially related to QC. Using gQC and sQC as query entities and the "Gene:Disease::drug targets" relation, we scored approximately 26,996 diseases in TarKG_core that are not directly linked to QC. The mlp_predict.ipynb notebook contains the code to reproduce this ranking process.
